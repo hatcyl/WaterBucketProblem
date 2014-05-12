@@ -1,0 +1,37 @@
+﻿@model Web.Models.Puzzle.PuzleCreateViewModel
+
+<div class="">
+    <h4>Create The Puzzle</h4>
+    <hr />
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BucketCapacity1, new { @class = "control-label" })
+        <div class="">
+            @Html.TextBoxFor(model => model.BucketCapacity1, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BucketCapacity1)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BucketCapacity2, new { @class = "control-label" })
+        <div class="">
+            @Html.TextBoxFor(model => model.BucketCapacity2, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BucketCapacity2)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DesiredAmount, new { @class = "control-label" })
+        <div class="">
+            @Html.TextBoxFor(model => model.DesiredAmount, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DesiredAmount)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+</div>

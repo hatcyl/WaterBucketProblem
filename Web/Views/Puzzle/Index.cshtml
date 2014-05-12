@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        @using (
+            Ajax.BeginForm(
+            "_Create",
+            new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "List" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Partial("_Create")
+        }
+    </div>
+    <div id="List" class="col-md-6">
+        @Html.Action("_List")
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    
+</div>
+

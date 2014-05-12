@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.postsharp.org/1.0/configuration">
+  <Property Name="LoggingBackEnd" Value="nlog" />
+  <Using File="..\packages\PostSharp.Patterns.Diagnostics.3.1.39\tools\PostSharp.Patterns.Diagnostics.Weaver.dll" />
+  <Using File="..\packages\PostSharp.Patterns.Diagnostics.NLog.3.1.39\tools\PostSharp.Patterns.Diagnostics.Weaver.NLog.dll" />
+
+  <Multicast>
+    <!--http://www.postsharp.net/blog/post/Configuring-PostSharp-Diagnostics-Toolkits-->
+    <LogAttribute xmlns="clr-namespace:PostSharp.Patterns.Diagnostics;assembly:PostSharp.Patterns.Diagnostics"
+                  AttributeTargetTypes="*"
+                  OnEntryLevel="Debug"
+                  OnSuccessLevel="Debug"
+                  OnExceptionLevel="Warning"/>
+
+    <LogAttribute xmlns="clr-namespace:PostSharp.Patterns.Diagnostics;assembly:PostSharp.Patterns.Diagnostics"
+                  AttributeExclude="true"
+                  AttributeTargetMembers="regex:get_.*|set_.*" />
+  </Multicast>
+</Project>

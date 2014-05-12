@@ -1,0 +1,51 @@
+﻿@model Core.Puzzle
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Solution</h4>
+        </div>
+        <div class="modal-body">
+            @if(Model.Solution != null)
+            {
+                <table class="table">
+                    <tr>
+                        <th>
+                            Small Bucket
+                        </th>
+                        <th>
+                            Large Bucket
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model.Solution.Steps)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SmallBucketLevel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LargeBucketLevel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Action)
+                    </td>
+                </tr>
+                }
+
+                </table>
+            }
+            else
+            {
+                @: ~ No Solution ~
+            }
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+
